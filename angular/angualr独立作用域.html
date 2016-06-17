@@ -26,7 +26,12 @@
                     return {
                         restrict: 'E',
                         scope: {},
-                        link: function (scope, element, attrs) { /*编译阶段怎么可以操作scope呢???*/
+                        link: function (scope, element, attrs) {  /*不能compile method => 编译阶段怎么可以操作scope呢???*/
+                            /**
+                                console.log(angular.element(element[0]).isolateScope());
+                                console.log(angular.element(document.querySelector('#' + attrs['bindElement'])).scope());
+                                console.log(angular.element(document.querySelector('#' + attrs['bindElement'])).isolateScope());
+                             **/
                             var target = angular.element(document.querySelector('#' + attrs['bindElement'])),
                                 scope1 = target.scope(),
                                 liveDom = $compile($rootScope.errTemplate)(scope);
