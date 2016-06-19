@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        div {
+            float: left;
+            margin-right: 100px;
+        }
+
+        .test {
+            width: 400px;
+            height: 400px;
+            background: green url('../imgs/fatherDay.png') no-repeat right 20px bottom 100px / 270px 129px;
+            background-origin: padding-box; /*content-box border-box*/
+        }
+
+        .test1 {
+            width: 400px;
+            height: 400px;
+            background: green url('../imgs/fatherDay.png') no-repeat calc(100% - 20px) calc(100% - 100px);
+        }
+    </style>
+</head>
+<body>
+    <!--test test1 效果一致 一个是借助 background-position扩展语法 一个是借助 calc函数-->
+    <div class="test"></div>
+    <div class="test1"></div>
+</body>
+</html>
