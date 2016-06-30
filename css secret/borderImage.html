@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title></title>
+    <style>
+        .test1 {
+            padding: 1em;
+            width: 400px;
+            height: 100px;
+            border: 1em solid transparent;
+            background: linear-gradient(#fff, #fff) padding-box,
+                        repeating-linear-gradient(-45deg, red 0, red 12.5%,
+                            transparent 0, transparent 25%,
+                            #58a 0, #58a 37.5%,
+                            transparent 0, transparent 50%) 0 / 5em 5em;
+        }
+
+        .test2 {
+            margin: 100px auto;
+            width: 200px;
+            height: 200px;
+            /*padding: 1em;*/
+            border: 1px solid transparent;
+            background: linear-gradient(#fff, #fff) padding-box,
+                        repeating-linear-gradient(-45deg, #000 0, #000 25%, #fff 0, #fff 50%) 0 / .6em;
+            animation: ants 12s linear infinite;
+        }
+
+        @keyframes ants {
+            to {
+                background-position: 100%;
+            }
+        }
+
+        .test3 {
+            border-top: .2em solid transparent;
+            border-image: 100% 0 0 linear-gradient(90deg, currentColor 4em, transparent 0);
+            padding-top: 1em;
+        }
+    </style>
+</head>
+<body>
+    <div class="test1"></div>
+    <div class="test2"></div>
+    <div class="test3">1 hello, world</div>
+</body>
+</html>
