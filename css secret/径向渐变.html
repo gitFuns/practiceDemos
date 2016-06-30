@@ -55,6 +55,18 @@
             background: greenyellow;
             padding: 1em;
         }
+
+        .div5 {
+            width: 150px;
+            height: 150px;
+            background: #eee;
+            background-image: linear-gradient(45deg, #bbb 25%, transparent 0),
+                              linear-gradient(45deg, transparent 75%, #bbb 0),
+                              linear-gradient(45deg, #bbb 25%, transparent 0),
+                              linear-gradient(45deg, transparent 75%, #bbb 0);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px, 15px 15px, 30px 30px;
+        }
     </style>
 </head>
 <body>
@@ -66,5 +78,6 @@
             hello, world
         </div>
     </div>
+    <div class="div5"></div>
 </body>
 </html>
