@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        .button {
+            width: 400px;
+            height: 70px;
+            color: #e1e1e1;
+            margin: 100px auto 0;
+            line-height: 70px;
+            font-size: 36px;
+            text-align: center;
+            position: relative;
+            font-weight: 700;
+        }
+
+        /*创建一个伪元素*/
+        .button::before {
+            content: '';
+            position: absolute;
+            top: 0;  left: 0;  right: 0;  bottom: 0; /*写法值得借鉴*/
+            background: #58a;
+            z-index: -1;
+            transform: skew(-45deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="button"> hello, world </div>
+</body>
+</html>
