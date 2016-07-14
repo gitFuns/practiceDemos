@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="demoApp">
+<head>
+    <meta charset="UTF-8">
+    <title>ngIf compare with ngShow</title>
+    <script src="../lib/angular/angular.js" type="text/javascript"></script>
+    <style>
+        .btn {
+            width: 100px;
+            height: 50px;
+            background: green;
+            line-height: 50px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <demo-button ng-init="test()" class="btn" ng-if="show">hello, world</demo-button>
+    <button class="btn" ng-click="toggle();">toggle</button>
+
+    <script>
+        angular.module('demoApp', [])
+            .run(function ($rootScope) {
+                $rootScope.show = true;
+                $rootScope.toggle = function () {
+                    $rootScope.show = !$rootScope.show;
+                };
+                $rootScope.test = function () {
+                    alert(123);
+                };
+            })
+            .directive('demoButton', function ($rootScope) {
+                return {
+                    restrict: 'E',
+                    compile: function () {
+                        return function () {
+                            alert('in link process');
+                        }
+                    }
+                };
+            });
+    </script>
+</body>
+</html>
