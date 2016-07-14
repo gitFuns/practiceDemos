@@ -15,7 +15,7 @@
     </style>
 </head>
 <body>
-    <demo-button ng-init="test()" class="btn" ng-if="show">hello, world</demo-button>
+    <demo-button class="btn" ng-show="show">hello, world</demo-button>
     <button class="btn" ng-click="toggle();">toggle</button>
 
     <script>
@@ -24,9 +24,6 @@
                 $rootScope.show = true;
                 $rootScope.toggle = function () {
                     $rootScope.show = !$rootScope.show;
-                };
-                $rootScope.test = function () {
-                    alert(123);
                 };
             })
             .directive('demoButton', function ($rootScope) {
