@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .wave-stripe {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px; line-height: 200px;
+            text-align: center;
+            color: #333;
+            font-size: 200%;
+            background: linear-gradient(45deg, deeppink 25%, transparent 25%),
+                        linear-gradient(315deg, deeppink 25%, transparent 25%),
+                        linear-gradient(135deg, deeppink 25%, transparent 25%) -50px 0,
+                        linear-gradient(225deg, deeppink 25%, transparent 25%) -50px 0;
+            background-size: 40px 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wave-stripe">.wave-stripe</div>
+</body>
+</html>

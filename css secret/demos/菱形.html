@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        /*该想法与平行四边形的原理其实是一样的*/
+        .diamond {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px; line-height: 200px;
+            text-align: center;
+            color: #fff;
+            font-size: 200%;
+        }
+
+        .diamond:before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+            background-color: deeppink;
+            z-index: -1;
+            transform: rotateZ(45deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="diamond">.diamond</div>
+</body>
+</html>
