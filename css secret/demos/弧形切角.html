@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .arc {
+            position: absolute;
+            top:50%;
+            left: 50%;
+            transform:translate(-50%,-50%);
+            width: 60px;
+            padding: 60px;
+            text-align: center;
+            color: white;
+            font-size: 200%;
+        }
+
+        .arc {
+            background: radial-gradient(circle at top left, transparent 15px, yellowgreen 0) top left,
+                        radial-gradient(circle at top right, transparent 15px, yellowgreen 0) top right,
+                        radial-gradient(circle at bottom right, transparent 15px, yellowgreen 0) bottom right,
+                        radial-gradient(circle at bottom left, transparent 15px, yellowgreen 0) bottom left;
+            background-size: 50% 50%;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body>
+    <div class="arc">arc</div>
+</body>
+</html>

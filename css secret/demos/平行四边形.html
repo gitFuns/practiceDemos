@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <!--实际上该demo已经在css secret上描述过了-->
+    <style>
+        .parallelogram {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 280px; line-height: 150px;
+            text-align: center;
+            color: #fff;
+            font-size: 200%;
+        }
+
+        .parallelogram:before {
+            content: '';
+            position: absolute;
+            top: 0; bottom: 0; left: 0; right: 0;
+            background-color: #00aabb;
+            z-index: -1;
+            transform: skew(.08turn);
+        }
+    </style>
+</head>
+<body>
+    <div class="parallelogram">.parallelogram</div>
+</body>
+</html>

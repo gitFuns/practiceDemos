@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        .notching {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            padding: 100px 20px;
+            text-align: center;
+            color: #fff;
+            font-size: 200%;
+        }
+        
+        .notching {
+            background: linear-gradient(135deg, transparent 15px, deeppink 0) top left,
+                        linear-gradient(-135deg, transparent 15px, deeppink 0) top right,
+                        linear-gradient(-45deg, transparent 15px, deeppink 0) bottom right,
+                        linear-gradient(45deg, transparent 15px, deeppink 0) bottom left;
+            background-size: 50% 50%;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body>
+    <div class="notching"></div>
+</body>
+</html>

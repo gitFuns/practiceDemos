@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        .bubbly {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%); /*not support for ie8*/
+            background: #00aabb;
+            border-radius: .4em;
+            width: 260px;
+            padding: 60px 20px;
+            text-align: center;
+            color: #fff;
+            font-size: 200%;
+            outline: 0;
+        }
+
+        .bubbly:after { /*写一个冒号 for ie 兼容性*/
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            border: 34px solid transparent;
+            border-top-color: #00aabb;
+            border-bottom: 0;
+            border-left: 0;
+            margin: 0 0 -34px -17px;
+        }
+    </style>
+</head>
+<body>
+    <div class="bubbly"></div>
+</body>
+</html>
