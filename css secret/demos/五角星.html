@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title></title>
+    <style>
+        .five-star {
+            position: absolute;
+            top: 35%; right: 50%;
+            transform: translate(-50%, -50%) scale(8);
+            width: 0; height: 0;
+            display: block;
+            border-left: 3px solid transparent;
+            border-right: 3px solid transparent;
+            border-bottom: 10px solid red;
+            cursor: pointer;
+        }
+
+        .five-star:before{
+            content: "";
+            position: absolute;
+            top: 8px;
+            left: -8px;
+            width: 0;
+            height: 0;
+            color: #98DBE3;
+            display: block;
+            border-left: 12px solid transparent;
+            border-right: 12px solid transparent;
+            border-bottom: 9px solid red;
+            transform-origin: top center;
+            transform: rotate(37deg);
+        }
+
+        .five-star:after{
+            content: "";
+            position: absolute;
+            top: 8px;
+            left: -15px;
+            width: 0;
+            height: 0;
+            color: #98DBE3;
+            display: block;
+            border-left: 12px solid transparent;
+            border-right: 12px solid transparent;
+            border-bottom: 9px solid red;
+            transform-origin: top center;
+            transform: rotate(-37deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="five-star"></div>
+</body>
+</html>
