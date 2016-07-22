@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        /*linear-gradient 默认是想向下的 to bottom 180deg*/
+        .opera {
+            position: absolute;
+            top: 50%; left: 50%;
+            width: 170px; height: 200px;
+            border-radius: 50%;
+            box-shadow: 0 2px 4px #333;
+            background-image: linear-gradient(rgb(254, 135, 138) 0%, rgb(231, 22, 22) 50%, rgb(128, 0, 0) 85%, rgb(184, 3, 4) 100%);
+        }
+
+        .opera:before{
+            content:"";
+            position: absolute;
+            top:50%;left:50%;
+            width: 72px;height: 185px;
+            transform: translate(-50%, -50%);
+            border-radius:50%;
+            background:rgba(0,0,0,.4);
+        }
+
+        .opera:after{
+            content:"";
+            position: absolute;
+            top:50%;left:50%;
+            width: 60px;height: 180px;
+            transform: translate(-50%, -50%);
+            border-radius:50%;
+            background:#fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="opera"></div>
+</body>
+</html>
