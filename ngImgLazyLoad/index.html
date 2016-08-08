@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ImgLazyDemoApp">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../lib/angular/angular.js"></script>
+    <script src="../lib/angular-lazy-img/release/angular-lazy-img.js"></script>
+    <style>
+        img {
+            display: block;
+            margin:  1000px auto;
+        }
+
+        .container {
+            width: 300px;
+            height: 300px;
+            background: url('') no-repeat center / cover ;
+            margin:  1000px auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>for ng images lazy load</h1>
+
+    <img alt="" lazy-img='../imgs/fatherDay.png' />
+
+    <div lazy-img='../imgs/mix.png' class="container"></div>
+
+    <script>
+        angular.module('ImgLazyDemoApp', ['angularLazyImg'])
+                .config(function (lazyImgConfigProvider) {
+                    lazyImgConfigProvider.setOptions({
+                        offset: 100, // how early you want to load image (default = 100)
+                        errorClass: 'error', // in case of loading image failure what class should be added (default = null)
+                        successClass: 'success', // in case of loading image success what class should be added (default = null)
+                        onError: function(image){ alert(image);}, // function fired on loading error
+                        onSuccess: function(image){}
+                    });
+                })
+                .run(function ($window) {
+                    angular.element($window)['on']('resize', function () {
+                        console.log('in resize eventListen event.');
+                    });
+                });
+    </script>
+</body>
+</html>
