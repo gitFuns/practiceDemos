@@ -1,0 +1,15 @@
+{
+  "name": "idoc",
+  "homepage": "https://github.com/GuoYongfeng/idoc",
+  "version": "0.0.1",
+  "_release": "0.0.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.0.1",
+    "commit": "89eebb37b60a41f5732566d923af38a9642c14dc"
+  },
+  "_source": "https://github.com/GuoYongfeng/idoc.git",
+  "_target": "^0.0.1",
+  "_originalSource": "https://github.com/GuoYongfeng/idoc.git",
+  "_direct": true
+}
