@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>梯形</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        .tab {
+            position: relative;
+            /*display: inline-block;*/
+            padding: 1em 2em .7em;
+            color: #fff;
+            display: none;
+        }
+
+        .tab:before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: -1;
+            background: #58a;
+            transform: scaleY(1.3) perspective(.5em) rotateX(5deg);
+            transform-origin: bottom;
+        }
+
+        nav > a {
+            position: relative;
+            display: inline-block;
+            padding: .6em 2em 0;
+            outline: 0;
+            overflow: hidden;
+        }
+
+        nav > a:before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: -1; background: #ccc;
+            background-image: linear-gradient(hsla(0, 0%, 100%, .6), hsla(0, 0%, 100%, 0));
+            border: 1px solid rgba(0, 0, 0, .4);
+            border-bottom: none;
+            border-radius: .5em .5em 0 0;
+            box-shadow: 0 .15em #fff inset;
+            transform: perspective(.5em) rotateX(5deg);
+            transform-origin: bottom;
+        }
+    </style>
+</head>
+<body>
+    <div class="tab">trapezoid</div>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Projects</a>
+        <a href="">About</a>
+    </nav>
+    <div>
+        <h2>Content area</h2>
+    </div>
+</body>
+</html>
