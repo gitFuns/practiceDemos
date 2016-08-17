@@ -1,0 +1,14 @@
+{
+  "name": "webpack-demos",
+  "version": "1.0.0",
+  "description": "webpack demos",
+  "main": "index.js",
+  "scripts": {
+    "build": "./node_modules/.bin/webpack"
+  },
+  "author": "joshua",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^1.13.1"
+  }
+}
