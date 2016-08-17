@@ -4,11 +4,13 @@
   "description": "webpack demos",
   "main": "index.js",
   "scripts": {
-    "build": "./node_modules/.bin/webpack"
+    "build": "./node_modules/.bin/webpack",
+    "build-server": "./node_modules/.bin/webpack-dev-server --progress --colors --content-base build"
   },
   "author": "joshua",
   "license": "ISC",
   "devDependencies": {
-    "webpack": "^1.13.1"
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1"
   }
 }
