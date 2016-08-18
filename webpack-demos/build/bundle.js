@@ -53,7 +53,7 @@
 /***/ function(module, exports) {
 
 	module.exports = function () {
-	  alert('webpack demo');
+	  alert('webpack demo add');
 	};
 
 /***/ }
