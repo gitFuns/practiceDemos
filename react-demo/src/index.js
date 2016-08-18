@@ -7,4 +7,4 @@ var HelloMessage = React.createClass({
     }
 });
 
-ReactDom.render(<HelloMessage name="John" />, mountNode);
+App.render(<HelloMessage name="John" />, mountNode);

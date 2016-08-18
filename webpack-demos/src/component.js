@@ -1,3 +1,3 @@
 module.exports = function () {
-  alert('webpack demo add');
+    alert(' i am from component.js');
 };
