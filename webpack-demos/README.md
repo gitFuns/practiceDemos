@@ -1,9 +1,15 @@
-# webpack demos
 
-- es6 
-- babel
-- git
 
-## 珠峰培训视频
+# 前端资源
 
-- http://www.zhufengpeixun.cn/course/31/learn#lesson/774
+- js: babel babel-loader preset plugin
+- template: html, ejs, handlebars
+- css: less stylus sass
+- imgs: png jpg jpg jpeg
+- iconFonts: tff eot woff2 svg
+- json
+
+## webpack 
+
+- 结合babel 打包工具
+- 各种 loader 

@@ -1,14 +1,16 @@
-'use strict';
-
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
 
-class HelloWorld extends Component {
+
+class App extends Component {
     render() {
         return (
-            <h1>Hello world</h1>
+            <div>
+                <h1>欢迎参加珠峰培训</h1>
+            </div>
         )
     }
 }
 
-ReactDOM.render(<HelloWorld />, document.getElementById('app'));
+var rootElement = document.getElementById('app');
+render(<App />, rootElement);
