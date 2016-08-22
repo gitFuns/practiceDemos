@@ -12,7 +12,7 @@ class FormApp extends Component {
       radioValue:'B',
       checkValues:[],
       textareaValue:'请输入...'
-  }
+  };
 
   handleSubmit = (e) => {
       e.preventDefault();
@@ -23,7 +23,7 @@ class FormApp extends Component {
           textarea: this.refs.goodTextarea.value,
           radio: this.state.radioValue,
           check: this.state.checkValues,
-      }
+      };
 
       alert('您即将提交表单')
       console.log('你提交的数据是:')

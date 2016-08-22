@@ -46,7 +46,7 @@ class App extends Component {
                      <FormApp />
                      */
                 }
-                <SelfCreateComponent />
+                <FormApp />
             </div>
         )
     }

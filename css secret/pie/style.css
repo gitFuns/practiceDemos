@@ -1,0 +1,52 @@
+div.pie {
+    width: 300px;
+    height: 300px;
+    margin: 100px auto;
+    border-radius: 50%;
+    background: yellowgreen;
+    background-image: linear-gradient(to right, transparent 50%, #655 0);
+}
+
+div.pie:before {
+    content: '';
+    display: block;
+    margin-left: 50%;
+    height: 100%;
+    border-radius: 0 100% 100% 0 / 50%;
+    background-color: #655;
+    transform-origin: 0 50%;
+    transform: rotate(.1turn);
+}
+
+div.pie1 {
+    width: 300px;
+    height: 300px;
+    margin: 100px auto;
+    border-radius: 50%;
+    background: yellowgreen;
+    background-image: linear-gradient(to right, transparent 50%, #655 0);
+}
+
+div.pie1:before {
+    content: '';
+    display: block;
+    margin-left: 50%;
+    height: 100%;
+    border-radius: 0 100% 100% 0 / 50%;
+    background-color: inherit;
+    transform-origin: 0 50%;
+    animation: spin 3s linear infinite,
+               bg 6s step-end infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(.5turn)
+    }
+}
+
+@keyframes bg {
+    50% {
+        background: #655;
+    }
+}
