@@ -6,27 +6,33 @@
     <style type="text/css">
         .notching {
             position: absolute;
-            top: 50%;
+            top:50%;
             left: 50%;
-            transform: translate(-50%, -50%);
-            width: 200px;
-            padding: 100px 20px;
+            transform:translate(-50%,-50%);
+            width: 160px;
+            padding: 60px 20px;
             text-align: center;
-            color: #fff;
+            color: white;
             font-size: 200%;
+            font-weight: 700;
         }
-        
-        .notching {
-            background: linear-gradient(135deg, transparent 15px, deeppink 0) top left,
-                        linear-gradient(-135deg, transparent 15px, deeppink 0) top right,
-                        linear-gradient(-45deg, transparent 15px, deeppink 0) bottom right,
-                        linear-gradient(45deg, transparent 15px, deeppink 0) bottom left;
+
+        .notching{
+            background:
+            linear-gradient(135deg, transparent 15px, deeppink 0)
+            top left,
+            linear-gradient(-135deg, transparent 15px, deeppink 0)
+            top right,
+            linear-gradient(-45deg, transparent 15px, deeppink 0)
+            bottom right,
+            linear-gradient(45deg, transparent 15px, deeppink 0)
+            bottom left;
             background-size: 50% 50%;
             background-repeat: no-repeat;
         }
     </style>
 </head>
 <body>
-    <div class="notching"></div>
+    <div class="notching">notching</div>
 </body>
 </html>
