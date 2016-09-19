@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        .corner {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120px; line-height: 120px;
+            padding: 40px; text-align: center;
+            font-size: 200%; font-weight: 700;
+            border-radius: .5em; color: #fff;
+            background: linear-gradient(-150deg, transparent 1.5em, yellowgreen 0);
+        }
+
+        .corner:before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0;
+            width: 1.73em; height: 3em;
+            /*background-color: red;*/
+            background-image: linear-gradient(to left bottom, transparent 50%, rgba(0, 0, 0, .2) 0, rgba(0, 0, 0, .4) 100%);
+            background-size: 100%;
+            transform: translateY(-1.3em) rotate(-30deg);
+            transform-origin: bottom right;
+            border-bottom-left-radius: inherit;
+            box-shadow: -.2em .2em .3em -.1em rgba(0,0,0,.15);
+        }
+    </style>
+</head>
+<body>
+    <div class="corner">.corner</div>
+</body>
+</html>
