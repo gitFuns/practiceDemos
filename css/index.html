@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            font-size: 14px;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+
+        #wrapper {
+            width: 800px;
+            margin: 40px auto;
+            height: 40px;
+            background: lightblue;
+            border: 1px dashed orange;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        #contentBegin, #contentEnd {
+            height: 40px;
+            line-height: 40px;
+        }
+
+        #contentBegin span, #contentEnd span {
+            color: red;
+        }
+
+        #wrapper div {
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+<div id="wrapper">
+    <div id="contentBegin">
+        <span>通知:</span>
+        郑文凯称，十八大以来，党中央、国务院高度重视，对于扶贫开发的投入明显增加，不仅是国家，各级财政专项投入也是明显增加，增幅很大。从扶贫资金管理方式，
+        1996年探索实行扶贫资金制度&nbsp;&nbsp;
+    </div><div id="contentEnd">
+        <span>通知:</span>
+        郑文凯称，十八大以来，党中央、国务院高度重视，对于扶贫开发的投入明显增加，不仅是国家，各级财政专项投入也是明显增加，增幅很大。从扶贫资金管理方式，
+    1996年探索实行扶贫资金制度
+    </div>
+</div>
+
+<script type="text/javascript">
+    var wrapper = document.getElementById('wrapper'),
+            content = document.getElementById('contentBegin'),
+            timer = setInterval(function () {
+                wrapper.scrollLeft += 1;
+                if (wrapper.scrollLeft >= content.clientWidth) {
+                    wrapper.scrollLeft = 0;
+                }
+            }, 10);
+</script>
+</body>
+</html>
