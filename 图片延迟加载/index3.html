@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>多张图片延迟加载</title>
+    <script src="jquery1.6.4.min.js" type="text/javascript"></script>
+    <!--
+        图片延迟加载原来这么简单 关键是要明白原理  用到都是关于盒子模型的基础属性 不要以为自己真的很懂盒子模型  也可以从侧面反映前端
+        人员的基本功 都是基本功总结得到的我的基本功其实还是不扎实 自以为掌握一两门前端框架 就很NB 基本功啊 童鞋 勉之
+    -->
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            font-size: 14px;
+            font-family: "Helvetica Neue", Helvetica, Microsoft Yahei, Hiragino Sans GB, WenQuanYi Micro Hei, sans-serif;
+        }
+
+        ul, li {
+            list-style: none;
+        }
+
+        img {
+            display: block;
+            border: none;
+        }
+
+        /*最外层容器不设定固定的宽高*/
+        .news {
+            padding: 10px;
+        }
+
+        .news li {
+            position: relative;
+            height: 60px;
+            padding: 10px 0;
+            border-bottom: 1px dashed #ccc;
+            overflow: hidden;
+        }
+
+        .news li > div:nth-child(1) {
+            position: absolute;
+            top: 10px;
+            left: 0;
+            width: 75px;
+            height: 60px;
+            background: #eee url(default.png) no-repeat center / 50%;
+        }
+
+        .news li > div:nth-child(1) img {
+            width: 100%;
+            height: 100%;
+            display: none;
+            opacity: 0;
+        }
+
+        .news li > div:nth-child(2) {
+            margin-left: 80px;
+            height: 60px;
+        }
+
+        .news li > div:nth-child(2) h2 {
+            height: 20px;
+            line-height: 20px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .news li > div:nth-child(2) p {
+            line-height: 20px;
+            font-size: 12px;
+            color: #676767;
+        }
+    </style>
+</head>
+<body>
+<ul id="news" class="news">
+    <li>
+        <div>
+            <img src="" lazy-img="img1.jpg" data-key="1" alt=""/>
+        </div>
+        <div>
+            <h2>网络强国战略习近平与"十三五"十四大战略</h2>
+
+            <p>互联网是二十世纪人类最大的发明互联网是二十世纪</p>
+        </div>
+    </li>
+    <li>
+        <div>
+            <img src="" lazy-img="img2.jpg" data-key="2" alt=""/>
+        </div>
+        <div>
+            <h2>网络强国战略习近平与"十三五"十四大战略</h2>
+
+            <p>互联网是二十世纪人类最大的发明互联网是二十世纪</p>
+        </div>
+    </li>
+    <li>
+        <div>
+            <img src="" lazy-img="img3.jpg" data-key="3" alt=""/>
+        </div>
+        <div>
+            <h2>网络强国战略习近平与"十三五"十四大战略</h2>
+
+            <p>互联网是二十世纪人类最大的发明互联网是二十世纪</p>
+        </div>
+    </li>
+    <li>
+        <div>
+            <img src="" lazy-img="img1.jpg" data-key="4" alt=""/>
+        </div>
+        <div>
+            <h2>网络强国战略习近平与"十三五"十四大战略</h2>
+
+            <p>互联网是二十世纪人类最大的发明互联网是二十世纪</p>
+        </div>
+    </li>
+    <li>
+        <div>
+            <img src="" lazy-img="img2.jpg" data-key="5" alt=""/>
+        </div>
+        <div>
+            <h2>网络强国战略习近平与"十三五"十四大战略</h2>
+
+            <p>互联网是二十世纪人类最大的发明互联网是二十世纪</p>
+        </div>
+    </li>
+    <li>
+        <div>
+            <img src="" lazy-img="img3.jpg" data-key="6" alt=""/>
+        </div>
+        <div>
+            <h2>网络强国战略习近平与"十三五"十四大战略</h2>
+
+            <p>互联网是二十世纪人类最大的发明互联网是二十世纪</p>
+        </div>
+    </li>
+    <li>
+        <div>
+            <img src="" lazy-img="img1.jpg" data-key="7" alt=""/>
+        </div>
+        <div>
+            <h2>网络强国战略习近平与"十三五"十四大战略</h2>
+
+            <p>互联网是二十世纪人类最大的发明互联网是二十世纪</p>
+        </div>
+    </li>
+    <li>
+        <div>
+            <img src="" lazy-img="img2.jpg" data-key="8" alt=""/>
+        </div>
+        <div>
+            <h2>网络强国战略习近平与"十三五"十四大战略</h2>
+
+            <p>互联网是二十世纪人类最大的发明互联网是二十世纪</p>
+        </div>
+    </li>
+    <li>
+        <div>
+            <img src="" lazy-img="img4.jpg" data-key="9" alt=""/>
+        </div>
+        <div>
+            <h2>网络强国战略习近平与"十三五"十四大战略</h2>
+
+            <p>互联网是二十世纪人类最大的发明互联网是二十世纪</p>
+        </div>
+    </li>
+    <li>
+        <div>
+            <img src="" lazy-img="img5.jpg" data-key="10" alt=""/>
+        </div>
+        <div>
+            <h2>网络强国战略习近平与"十三五"十四大战略</h2>
+
+            <p>互联网是二十世纪人类最大的发明互联网是二十世纪</p>
+        </div>
+    </li>
+    <li>
+        <div>
+            <img src="" lazy-img="img6.jpg" data-key="11" alt=""/>
+        </div>
+        <div>
+            <h2>网络强国战略习近平与"十三五"十四大战略</h2>
+
+            <p>互联网是二十世纪人类最大的发明互联网是二十世纪</p>
+        </div>
+    </li>
+    <li>
+        <div>
+            <img src="" lazy-img="img3.jpg" data-key="12" alt=""/>
+        </div>
+        <div>
+            <h2>网络强国战略习近平与"十三五"十四大战略</h2>
+
+            <p>互联网是二十世纪人类最大的发明互联网是二十世纪</p>
+        </div>
+    </li>
+    <li>
+        <div>
+            <img src="" lazy-img="img1.jpg" data-key="13" alt=""/>
+        </div>
+        <div>
+            <h2>网络强国战略习近平与"十三五"十四大战略</h2>
+
+            <p>互联网是二十世纪人类最大的发明互联网是二十世纪</p>
+        </div>
+    </li>
+    <li>
+        <div>
+            <img src="" lazy-img="img2.jpg" data-key="14" alt=""/>
+        </div>
+        <div>
+            <h2>网络强国战略习近平与"十三五"十四大战略</h2>
+
+            <p>互联网是二十世纪人类最大的发明互联网是二十世纪</p>
+        </div>
+    </li>
+    <li>
+        <div>
+            <img src="" lazy-img="img3.jpg" data-key="15" alt=""/>
+        </div>
+        <div>
+            <h2>网络强国战略习近平与"十三五"十四大战略</h2>
+
+            <p>互联网是二十世纪人类最大的发明互联网是二十世纪</p>
+        </div>
+    </li>
+    <li>
+        <div>
+            <img src="" lazy-img="img1.jpg" data-key="16" alt=""/>
+        </div>
+        <div>
+            <h2>网络强国战略习近平与"十三五"十四大战略</h2>
+
+            <p>互联网是二十世纪人类最大的发明互联网是二十世纪</p>
+        </div>
+    </li>
+    <li>
+        <div>
+            <img src="" lazy-img="img2.jpg" data-key="17" alt=""/>
+        </div>
+        <div>
+            <h2>网络强国战略习近平与"十三五"十四大战略</h2>
+
+            <p>互联网是二十世纪人类最大的发明互联网是二十世纪</p>
+        </div>
+    </li>
+    <li>
+        <div>
+            <img src="" lazy-img="img3.jpg" data-key="18" alt=""/>
+        </div>
+        <div>
+            <h2>网络强国战略习近平与"十三五"十四大战略</h2>
+
+            <p>互联网是二十世纪人类最大的发明互联网是二十世纪</p>
+        </div>
+    </li>
+    <li>
+        <div>
+            <img src="" lazy-img="img1.jpg" data-key="19" alt=""/>
+        </div>
+        <div>
+            <h2>网络强国战略习近平与"十三五"十四大战略</h2>
+
+            <p>互联网是二十世纪人类最大的发明互联网是二十世纪</p>
+        </div>
+    </li>
+    <li>
+        <div>
+            <img src="" lazy-img="img2.jpg" data-key="20" alt=""/>
+        </div>
+        <div>
+            <h2>网络强国战略习近平与"十三五"十四大战略</h2>
+
+            <p>互联网是二十世纪人类最大的发明互联网是二十世纪</p>
+        </div>
+    </li>
+
+
+    <script type="application/javascript">
+        /*ajax经典四部曲*/
+        var jsonData = null;
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'json/newList.txt?_=' + Math.random(), false);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && /^2\d{2}$/.test(xhr.status)) {
+                jsonData = JSON.parse(xhr.responseText);
+            }
+        };
+        xhr.send(null);
+
+        var imgList = document.getElementById('news').getElementsByTagName('img');
+
+        /*编写一个方法 实现单张图片的延迟加载*/
+        function lazyLoadImg(curImg) {
+            var oImg = new Image();
+            oImg.src = curImg.getAttribute('lazy-img');
+            oImg.onload = function () {
+                curImg.src = this.src;
+                curImg.style.display = 'block';
+                fadeIn(curImg);
+                oImg = null;
+            };
+            curImg.isLoad = true;
+        }
+
+        /*循环处理每一张图片*/
+        function handledAllImg() {
+            for (var i = 0, len = imgList.length; i < len; i++) {
+                var curImg = imgList[i];
+                if (curImg.isLoad) {
+                    continue;
+                }
+                var curImgParent = curImg.parentNode.parentNode;
+                var A = curImgParent.offsetTop + curImgParent.offsetHeight;
+                var B = document.documentElement.scrollTop || document.body.scrollTop + document.documentElement.clientHeight || document.body.clientHeight;
+                if (A < B) {
+                    lazyLoadImg(curImg)
+                }
+            }
+        }
+
+        /*实现渐现效果*/
+        function fadeIn(curImg) {
+            var duration = 500, interval = 10, target = 1;
+            var step = (target / duration) * interval;
+            var timer = window.setInterval(function () {
+                var curOpacity = parseFloat(window.getComputedStyle(curImg, null).opacity);
+                if(curOpacity >= 1) {
+                    curImg.style.opacity = 1;
+                    window.clearInterval(timer);
+                    return;
+                }
+                curOpacity += step;
+                curImg.style.opacity = curOpacity;
+            }, interval)
+        }
+
+        /*开始的时候(过500ms加载第一屏幕的图片), 滚动条滚动的时候加载其他图片*/
+        window.setTimeout(handledAllImg, 500);
+        window.onscroll = handledAllImg;
+    </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片延迟加载/图片懒加载</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 14px;
+        }
+
+        img {
+            display: block;
+            border: none;
+        }
+
+        .banner {
+            margin: 10px auto;
+            width: 365px;
+            height: 227px;
+            border: 1px solid green;
+            background: url('./default.png') no-repeat center;
+        }
+
+        .banner img {
+            display: none;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<!--
+    保证页面打开的速度
+    原理:
+    1) 对于首屏内容中的图片  先给一张默认图片尽量小 5kb以内 优先1kb
+    2) 首屏内容都加载完成之后 然后再显示真实的图片
+    3) 对于其他屏中的图片 也是给默认的图片占位 scroll到对应的区域的时候
+       我们在加载真实图片
+
+    扩展: 数据的异步加载 开始只把前两屏的数据加载绑定出来 后面的数据不进行处理
+    scroll到对应的区域的时候 再重新请求数据 然后绑定渲染数据 下拉加载数据
+
+    首页3s之内打不开 已经算是死亡页面
+-->
+
+<div class="banner" id="banner">
+    <img src="" alt="" lazy-img="img1.jpg"/>
+</div>
+
+<script type="text/javascript">
+    var banner = document.getElementById('banner'),
+            img = banner.getElementsByTagName('img')[0];
+
+    window.setTimeout(function () {
+//        img.src = img.getAttribute('lazy-img'); //不认识驼峰
+//        img.style.display = 'block';
+
+        /*上述代码没有验证图片地址有效性*/
+//        var oImg = document.createElement('img');
+        var oImg = new Image();
+        oImg.src = img.getAttribute('lazy-img');
+        oImg.onload = function () { //图片能够正常的加载 间接表明地址有效
+            img.src = this.src;
+            img.style.display = 'block';
+            oImg = null;
+        }
+    }, 1000);
+</script>
+</body>
+</html>

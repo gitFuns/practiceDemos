@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片延迟加载/图片懒加载</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 14px;
+        }
+
+        img {
+            display: block;
+            border: none;
+        }
+
+        .banner {
+            margin: 1000px auto;
+            width: 365px;
+            height: 227px;
+            border: 1px solid green;
+            background: #e1e1e1 url('./default.png') no-repeat center;
+        }
+
+        .banner img {
+            display: none;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<div class="banner" id="banner">
+    <img src="" alt="" lazy-img="img1.jpg"/>
+</div>
+
+<script type="text/javascript">
+    var banner = document.getElementById('banner'),
+            img = banner.getElementsByTagName('img')[0];
+
+    /*所有操作浏览器盒子模型相关属性的代码必须写两套*/
+    window.onscroll = function () {
+        if (img.isLoad) {
+            return;
+        }
+
+        var A = banner.offsetTop + banner.offsetHeight,
+                B = document.documentElement.scrollTop || document.body.scrollTop + document.documentElement.clientHeight || document.body.clientHight;
+        if (A < B) {
+            var src = img.getAttribute('lazy-img'),
+                    oImg = new Image();
+
+            oImg.src = src;
+            img.isLoad = true; //不管是否正常加载 只要处理过一次  以后都不在处理了
+            oImg.onload = function () {
+                img.src = this.src;
+                img.style.display = 'block';
+                oImg = null;
+            };
+        }
+    };
+
+</script>
+</body>
+</html>
