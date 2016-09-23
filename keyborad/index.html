@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>模拟数字键盘</title>
+    <link rel="stylesheet" href="index.css" type="text/css"/>
+</head>
+<body>
+<div class="container">
+    <div class="amount" data-content="|">
+    </div>
+    <div class="keyboard">数字键盘区域</div>
+</div>
+
+<script type="text/javascript">
+    var element = document.getElementsByClassName('amount')[0],
+            timer = window.setInterval(function () {
+                var content = element.getAttribute('data-content');
+                content ? content = '' : content = '|';
+                element.setAttribute('data-content', content);
+            }, 500);
+    var keyboard = document.getElementsByClassName('keyboard')[0];
+
+    window.setTimeout(function () {
+        keyboard.style.height = '200px';
+    }, 500);
+</script>
+</body>
+</html>
