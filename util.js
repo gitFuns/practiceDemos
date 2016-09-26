@@ -159,6 +159,53 @@ var util = (function () {
             oldElement.parentNode.appendChild(newElement);
         }
     }
+
+    /*获取默认上下文中的类名为className的元素集合*/
+    function getElementsByClassName(className, context) {
+        var result = [];
+        context = context || document;
+        if (isStandardBrowser) {
+            result = listToArray(context.getElementsByClassName(className));
+        } else {
+            var classNameArray = className.replace(/(^ +| +$)/g, '').split(/ +/g);
+                nodeList = context.getElementsByTagName('*');
+            for (var i = 0; i < nodeList.length; i++) {
+                var flag = true, curNode = nodeList[i];
+                for (var k = 0; k < classNameArray.length; k++) {
+                    var reg = new RegExp('(^| +)' + classNameArray[k] + '( +|$)');
+                    if (!reg.test(curNode.className)) {
+                        flag = false;
+                        break;
+                    }
+                }
+
+                if (flag) {
+                    result.push(curNode);
+                }
+            }
+        }
+
+        return result;
+    }
+
+    /*获取某个元素的样式值*/
+    function css(curEle, attr, value) {
+        if (typeof value === 'undefined') {
+            if (!isStandardBrowser) {
+                return curEle.currentStyle[attr];
+            }
+
+            return window.getComputedStyle(curEle, null)[attr];
+        }
+
+        curEle.style[attr] = value;
+    }
+
+    return {
+        css: css,
+        jsonParser: jsonParser,
+        getElementsByClassName: getElementsByClassName
+    };
 })();
 
 
