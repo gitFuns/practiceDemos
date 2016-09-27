@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dom event事件系统</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            font-size: 14px;
+            font-family: "Helvetica Neue", Helvetica, Microsoft Yahei, Hiragino Sans GB, WenQuanYi Micro Hei, sans-serif;
+        }
+
+        #box {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            background: green;
+        }
+
+        #box:hover {
+            background: red;;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script type="text/javascript">
+        /*mouseEvent => UIEvent => Event => Object  原型链*/
+        var oDiv = document.getElementById('box');
+        oDiv.onclick = function (e) {
+            console.dir(e);
+            console.log(window.event);
+        }
+    </script>
+</body>
+</html>
