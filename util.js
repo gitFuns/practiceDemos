@@ -203,6 +203,7 @@ var util = (function () {
 
     return {
         css: css,
+        children: children,
         jsonParser: jsonParser,
         getElementsByClassName: getElementsByClassName
     };
