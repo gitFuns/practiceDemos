@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件的传播机制</title>
+    <style type="text/css">
+        body, div {
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .outer {
+            margin: 20px auto;
+            width: 300px;
+            height: 300px;
+            padding: 20px;
+            background: green;
+        }
+
+        .inner {
+            width: 200px;
+            height: 200px;
+            padding: 20px;
+            background: red;
+        }
+
+        .center {
+            width: 100px;
+            height: 100px;
+            padding: 20px;
+            background: yellow;
+        }
+    </style>
+</head>
+<body>
+<div class="outer" id="outer">
+    <div class="inner" id="inner">
+        <div class="center" id="center"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var outer = document.getElementById('outer'),
+            inner = document.getElementById('inner'),
+            center = document.getElementById('center');
+
+    /*捕获阶段 -> 目标阶段 -> 冒泡阶段*/
+
+    //    DOM0 级事件绑定
+
+    //    document.body.onclick = function () {
+    //        console.log('body');
+    //    };
+    //
+    //    outer.onclick = function () {
+    //        console.log('outer');
+    //    };
+    //
+    //    inner.onclick = function () {
+    //        console.log('inner');
+    //    };
+    //
+    //    center.onclick = function () {
+    //        console.log('center');
+    //    };
+
+
+    /*周老师认为只有 捕获 和 冒泡 两个阶段*/
+
+    //   DOM2 级事件绑定 1.行为类型 type 2.callback 3. 控制在那个阶段发生  true-在捕获阶段发生 false-在冒泡阶段发生
+    document.body.addEventListener('click', function (e) {
+        console.log('body');
+    }, false);
+
+    outer.addEventListener('click', function (e) {
+        console.log('outer');
+    }, true);
+
+    inner.addEventListener('click', function (e) {
+        console.log('inner');
+    }, false);
+</script>
+</body>
+</html>

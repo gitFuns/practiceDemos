@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        body, div, img {
+            margin: 0;
+            padding: 0;
+        }
+
+        img {
+            display: block;
+            border: none;
+        }
+
+        .box {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 450px;
+            height: 450px;
+            box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, .7);
+        }
+
+        .box img {
+            width: 100%;
+            height: 100%;
+        }
+
+        #mark {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 225px;
+            height: 225px;
+            background: #000;
+            opacity: .5;
+            filter: alpha(opacity=50);
+            cursor: move;
+        }
+
+        #box-right {
+            display: none;
+            position: absolute;
+            /*width: 450px; height: 450px;*/
+            width: 600px; height: 600px;
+            top: 20px; left: 500px;
+            overflow: hidden;
+            box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, .7);
+        }
+
+        /*右侧图片的大小是严格需要计算的*/
+        #box-right img {
+            position: absolute;
+            top: 0; left: 0;
+            width: 200%;
+            height: 200%;
+        }
+    </style>
+</head>
+<body>
+<div id="box" class="box">
+    <img src="iphone.jpg" alt=""/>
+
+    <div id="mark"></div>
+</div>
+
+<div id="box-right">
+    <img src="iphone-bigger.jpg" alt=""/>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+    var box = document.getElementById('box'),
+            mark = document.getElementById('mark'),
+            boxRight = document.getElementById('box-right');
+
+    function setPosition(e) {
+        var top = e.clientY - box.offsetTop - (mark.offsetHeight / 2);
+        var left = e.clientX - box.offsetLeft - (mark.offsetWidth / 2);
+
+        //需要边界判断
+        var minLeft = 0, minTop = 0, maxLeft = box.offsetWidth - mark.offsetWidth, maxTop = box.offsetHeight - mark.offsetHeight;
+        if (left < minLeft) {
+            mark.style.left = minLeft + 'px';
+        } else if (left > maxLeft) {
+            mark.style.left = maxLeft + 'px';
+        } else {
+            mark.style.left = left + 'px';
+        }
+
+        if (top < minTop) {
+            mark.style.top = minTop + 'px';
+        } else if (top > maxTop) {
+            mark.style.top = maxTop + 'px';
+        } else {
+            mark.style.top = top + 'px';
+        }
+
+        //让右侧的图片跟着运动 1.3 = 600 / 450
+        var oImg = boxRight.getElementsByTagName('img')[0];
+        oImg.style.top =  -parseFloat(mark.style.top) * 2 * 1.3 + 'px';
+        oImg.style.left = -parseFloat(mark.style.left) * 2 * 1.3 + 'px';
+    }
+
+    box.onmouseenter = function (e) {
+        e = e || window.event;
+        mark.style.display = 'block';
+        boxRight.style.display = 'block';
+
+        setPosition(e);
+    };
+
+    box.onmousemove = function (e) {
+        e = e || window.event;
+
+        setPosition(e);
+    };
+
+    box.onmouseleave = function (e) {
+        e = e || window.event;
+        mark.style.display = 'none';
+        boxRight.style.display = 'none';
+    };
+</script>
+</body>
+</html>
