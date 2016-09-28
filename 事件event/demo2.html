@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件委托 事件代理</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        #box {
+            position: relative;
+            width: 100px;
+            height: 30px;
+            background: green;
+            margin: 20px auto;
+        }
+
+        #mark {
+            position: absolute;
+            top: 30px;
+            left: 0;
+            display: none;
+            width: 300px;
+            height: 100px;
+            background: orange;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="mark"></div>
+    </div>
+    <!--事件委托 事件代理-->
+    <script type="text/javascript">
+        var box = document.getElementById('box'),
+            mark = document.getElementById('mark');
+        box.onclick = function (e) {
+            var display = mark.style.display;
+            display === 'block' ? mark.style.display = 'none' : mark.style.display = 'block';
+            e.stopPropagation ? e.stopPropagation() : e.cancelBubble = true;
+
+            mark.onclick = function (e) {
+                e = e || window.event;
+                e.stopPropagation ? e.stopPropagation() : e.cancelBubble = true;
+            };
+        };
+
+        //利用冒泡 做事件委托代理
+        document.body.onclick = function () {
+            mark.style.display = 'none';
+        };
+    </script>
+</body>
+</html>
