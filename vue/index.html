@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue demo</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            font-size: 14px;
+            font-family: "Helvetica Neue", Helvetica, Microsoft Yahei, Hiragino Sans GB, WenQuanYi Micro Hei, sans-serif;
+        }
+
+        html, body {
+            border: 1px solid transparent;
+        }
+
+        #app {
+            width: 500px;
+            margin: 20px auto;
+        }
+
+        #app span {
+            height: 30px;
+            line-height: 30px;
+            font-size: 24px;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        #app input {
+            height: 30px;
+            line-height: 30px;
+            padding: 0 2px;
+            outline: 0;
+            font-size: 28px;
+        }
+
+        .focus {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <span>{{message}}</span>
+    <input type="text" v-model="message" @focus="focus()" @blur="blur();" :class="isFocus ? 'focus': ''"  />
+    <ul>
+        <li v-for="type in types">{{type}}</li>
+    </ul>
+    <my-component></my-component>
+</div>
+
+<script src="../bower_components/vue/dist/vue.js" type="text/javascript" charset="utf-8"></script>
+<script src="index.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>
