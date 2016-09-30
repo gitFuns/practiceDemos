@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>父子组件间的传值</title>
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css" type="text/css"/>
+</head>
+<body>
+    <!--
+        prop默认是单向绑定: 当父组件的属性变化时 将传导给子组件 但是反过来不会 这是为了防止 子组件无意修改了父组件的状态
+    -->
+    <div id="app">
+        <table class="table table-bordered">
+            <tr>
+                <th colspan="3">父组件数据</th>
+            </tr>
+            <tr>
+                <td>name</td>
+                <td>{{ name }}</td>
+                <td><input type="text" v-model="name" class="form-control" /></td>
+            </tr>
+            <tr>
+                <td>age</td>
+                <td>{{ age }}</td>
+                <td><input type="text" v-model="age" class="form-control" /></td>
+            </tr>
+        </table>
+
+        <!--可以使用.sync显式地指定双向绑定，这使得子组件的数据修改会回传给父组件。-->
+        <!--<my-component v-bind:my-name.sync="name" v-bind:my-age.sync="age"></my-component>-->
+
+        <!--可以使用.once显式地指定单次绑定，单次绑定在建立之后不会同步之后的变化，这意味着即使父组件修改了数据，也不会传导给子组件-->
+        <my-component v-bind:my-name.once="name" v-bind:my-age.once="age"></my-component>
+
+        <!--注意 v-bind v-on 的语法糖缩写  ： @ -->
+    </div>
+
+    <!--子组件的模板内容-->
+    <template id="myComponent">
+        <table class="table table-bordered">
+            <tr>
+                <th colspan="3" class="text-center">子组件数据</th>
+            </tr>
+            <tr>
+                <td>my name</td>
+                <td>{{myName}}</td>
+                <td><input type="text" v-model="myName" class="form-control"/></td>
+            </tr>
+            <tr>
+                <td>my age</td>
+                <td>{{myAge}}</td>
+                <td><input type="text" v-model="myAge" class="form-control"/></td>
+            </tr>
+        </table>
+    </template>
+
+    <script src="../bower_components/vue/dist/vue.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                name: 'keepfool',
+                age: 26
+            },
+            components: {
+                'my-component': {
+                    template: '#myComponent',
+                    props: ['myName', 'myAge']
+                }
+            }
+        });
+    </script>
+</body>
+</html>
