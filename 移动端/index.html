@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <style>
+        * {
+            margin: 0 auto;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background: orange;
+            position: absolute;
+            top: 50%; left: 50%;
+            margin-left: -50px;
+            margin-top: -50px;
+            -webkit-transition: all 1s linear 0s;
+            transition: all 1s linear 0s;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <script type="text/javascript">
+        var box = document.querySelector('.box');
+        box.addEventListener('touchstart', function (ev) {
+            this['strX'] = ev.touches[0].clientX;
+            this['strY'] = ev.touches[0].clientY;
+            this['isMove'] = false;
+        }, false);
+
+
+        box.addEventListener('touchmove', function (ev) {
+            if (Math.abs(ev.touches[0].clientX - this['strX']) > 30 || Math.abs(ev.touches[0].clientY - this['strY']) > 30) {
+                this['isMove'] = true;
+            }
+        }, false);
+
+        box.addEventListener('touchend', function () {
+            var _self = this,
+                bgColor = this.style.background;
+
+            this.style.WebkitTransitionDuration = '1s';
+            if (this['isMove']) {
+                bgColor === 'red' ? this.style.background = 'orange' : this.style.background = 'red';
+            } else {
+                this.style.WebkitTransform = 'rotate(360deg)';
+            }
+
+            setTimeout(function () {
+                /*通过切换 WebkitTransition = null | 'all 1s linear 0s' 并没有任何效果 只能设置 WebkitTransitionDuration 属性才能生效*/
+                _self.style.WebkitTransitionDuration = '0s';
+                _self.style.WebkitTransform = 'rotate(0deg)';
+            }, 1000);
+        }, false);
+
+    </script>
+</body>
+</html>
