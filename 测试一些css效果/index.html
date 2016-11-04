@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div.container {
+            position: relative;
+            display: block;
+            margin: 100px auto;
+            width: 300px;
+        }
+
+        .input1 {
+            display: block;
+            height: 40px;
+            width: 300px;
+            font-size: 20px;
+            outline: 0;
+            border: 1px solid transparent;
+            padding-left: 10px;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+
+        i.input-line {
+            content: '';
+            position: absolute;
+            left: 50%;
+            -webkit-transform: translateX(-50%);
+            bottom: 0;
+            height: 1px;
+            background: red;
+            width: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <input id="key" type="text" class="input1" placeholder="请输入姓名"/>
+    <i class="input-line"></i>
+</div>
+<script>
+    var inputEle = document.querySelector('#key'),
+            line = document.querySelector('i.input-line');
+
+    inputEle.addEventListener('focus', function () {
+        line.style.webkitTransition = 'all .5s';
+        line.style.width = '100%';
+    }, false);
+
+    inputEle.addEventListener('blur', function () {
+        line.style.webkitTransitionDuration = '0s';
+        line.style.width = '0';
+    }, false);
+</script>
+</body>
+</html>
