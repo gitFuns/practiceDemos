@@ -1,14 +1,20 @@
+var result = [
+    {
+        id: 1,
+        name: 'whb'
+    },
+    {
+        id: 2,
+        name: 'ssy'
+    },
+    {
+        id: 3,
+        name: 'lp'
+    }
+];
 
-var babel = require('babel');
+const filter = p => v => o => o.hasOwnProperty(p) && o[p] == v;
 
-const has = p => o => o.hasOwnProperty(p);
+let tmpArray = result.filter(item => filter('id')(2)(item));
 
-console.log(babel.transform(has).code);
-
-const sortBy = p => (a, b) => a[p] > b[p];
-
-console.log(babel.transform(sortBy).code);
-
-const is = p => v => o => o.hasOwnProperty(p) && o[p] == v;
-
-console.log(babel.transform(is).code);
+console.log(tmpArray);
