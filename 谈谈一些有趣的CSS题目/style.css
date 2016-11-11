@@ -1,0 +1,43 @@
+html, body {
+    height: 100%;
+    /*overflow: hidden;*/
+}
+
+.class1 {
+    position:relative;
+    width:200px;
+    height:60px;
+    background:#ddd;
+    left: 30%; top: 10%;
+    box-shadow: -3px 0 0 0 deeppink;
+}
+
+.class2 {
+    position:relative;
+    width:200px;
+    height:60px;
+    background:#ddd;
+    left: 30%; top: 20%;
+    background-image: linear-gradient(90deg, deeppink 3px, transparent 0);
+}
+
+.class3 {
+    position:relative;
+    height:60px;
+    left: 30%; top: 30%;
+    width: 203px;
+    background:deeppink;
+    overflow-y:scroll;
+}
+
+
+/*这个方法确实让人眼前一亮*/
+div::-webkit-scrollbar {
+    width: 200px;
+    background-color:#ddd;
+}
+
+body::-webkit-scrollbar {
+    width: 10px;
+    background-color: deeppink;
+}

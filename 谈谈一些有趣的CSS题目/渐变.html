@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <!--
+        background-color 和 background-image 的起始渲染位置是不一样的
+    -->
+    <style type="text/css">
+        div.box {
+            position:relative;
+            width: 180px;
+            height: 180px;
+            line-height: 180px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 28px;
+            margin: 0 auto;
+            background:#9c27b0;
+            border:20px dashed #2196f3;
+        }
+
+        div.box:after {
+            content: ' 渐变';
+            top: 0; left: 0;
+            bottom: 0; right: 0;
+            background: #fff;
+            position: absolute;
+        }
+
+        div.box1 {
+            position:relative;
+            width: 180px;
+            height: 180px;
+            line-height: 180px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 28px;
+            margin: 100px auto;
+            background:#fff;
+            background-clip: padding-box;
+            border:20px dashed #cccc99;
+        }
+
+        div.box1::before {
+            content:"";
+            position:absolute;
+            top:-20px;
+            left:-20px;
+            bottom:-20px;
+            right:-20px;
+            background:#996699;
+            z-index:-1;
+        }
+
+        div.box2 {
+            position:relative;
+            width: 220px;
+            height: 220px;
+            line-height: 180px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 28px;
+            margin: 100px auto;
+            background: url('https://camo.githubusercontent.com/d5bc51bc541a6a2376ee4ff61dd2f3be2c1f7b4d/687474703a2f2f696d616765732e636e626c6f67732e636f6d2f636e626c6f67735f636f6d2f636f636f31732f3838313631342f6f5f746573742e6a7067') no-repeat center / cover;
+        }
+
+        div.box2:after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            bottom: -100%;
+            background: inherit;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <div class="box1"></div>
+    <div class="box2"></div>
+</body>
+</html>

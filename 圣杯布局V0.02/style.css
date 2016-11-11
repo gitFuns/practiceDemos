@@ -1,0 +1,68 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    width:100%;
+    margin:0 auto;
+}
+
+header{
+    width:100%;
+    font-size:36px;
+    line-height:50px;
+    background:gray;
+    position:relative;
+    z-index:1;
+    text-indent:20px;
+}
+
+.wrap {
+    background: yellowgreen;
+    padding: 0 200px;
+}
+
+.wrap:after {
+    content: '';
+    clear: both;
+    display: block;
+    height: 0;
+}
+
+.content, .nav, .slidebar {
+    float: left;
+    position: relative;
+}
+
+.nav {
+    width: 200px;
+    left: -200px;
+    margin-left: -100%;
+}
+
+.content {
+    background: deeppink;
+}
+
+.slidebar {
+    width: 200px;
+    left: 200px;
+    margin-left: -200px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
