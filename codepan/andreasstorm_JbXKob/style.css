@@ -1,0 +1,54 @@
+body {
+    background: #181818;
+}
+* {
+    box-sizing: border-box;
+}
+.lbl {
+    position: relative;
+    display: block;
+    height: 22px;
+    width: 40px;
+    background: #000;
+    border-radius: 100px;
+    cursor: pointer;
+    border: 2px solid #404040;
+    transition: all 0.2s ease;
+}
+.lbl:after {
+    position: absolute;
+    left: -2px;
+    top: -2px;
+    display: block;
+    width: 22px;
+    height: 22px;
+    border-radius: 100px;
+    background: #a0a0a0;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+    content: '';
+    transition: all 0.3s ease;
+}
+.lbl:active:after {
+    width: 26px;
+    background: #fff;
+}
+.cbx:checked ~ label {
+    background: #1db955;
+    border-color: #1db955;
+}
+.cbx:checked ~ label:after {
+    transform: translateX(18px);
+    background: #fff;
+}
+.cbx:checked ~ label:active:after {
+    transform: translateX(14px);
+}
+.cntr {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.hidden {
+    display: none;
+}
