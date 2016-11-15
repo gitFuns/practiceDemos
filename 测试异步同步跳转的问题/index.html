@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+</head>
+<body>
+    <!--
+        测试结果证明  ajax异步 可以改变 window.location.href  实现浏览器同步跳转
+    -->
+    <button>测试</button>
+    <script src="../bower_components/jquery/dist/jquery.min.js" type="application/javascript"></script>
+    <script type="text/javascript">
+        $.get('http://cswebapi.ttelife.com/api/comm/homeCategory', function(data) {
+            alert(data.ResultObject[0].Name);
+            window.location.href = 'https://www.tmall.com';
+        });
+    </script>
+</body>
+</html>
