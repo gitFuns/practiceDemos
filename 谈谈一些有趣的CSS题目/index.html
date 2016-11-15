@@ -4,10 +4,48 @@
     <meta charset="UTF-8">
     <title>谈谈一些有趣的CSS题目</title>
     <link rel="stylesheet" href="style.css" type="text/css" />
+
+    <style>
+        .wrapper {
+            position: absolute;
+            overflow: hidden;
+            left: 50%; top: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 5px 0 rgba(0, 0, 0, .7);
+        }
+
+        .wrapper label {
+            width: 400px;
+            height: 200px;
+            display: block;
+            text-align: center;
+            font-weight: bold;
+            font-size: 24px;
+            margin: 0;
+            padding: 0;
+            cursor: pointer;
+            line-height: 200px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .cbx:checked ~ label {
+            color: red;
+        }
+    </style>
 </head>
 <body>
     <div class="class1"></div>
     <div class="class2"></div>
-    <div class="class3"></div>
+    <div class="class3" style="display: none"></div>
+
+    <!--只能和lable标签才能生效  remember this-->
+    <div class="wrapper">
+        <input type="checkbox" id="cbx" class="cbx hidden"/>
+        <label for="cbx">世界通史 人类简史</label>
+    </div>
+
 </body>
 </html>
