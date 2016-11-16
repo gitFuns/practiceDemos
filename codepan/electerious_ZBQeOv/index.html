@@ -1,0 +1,96 @@
+<!--这是我见过实现H5底部菜单最优雅的一个  写的非常好 值得借鉴-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+<body>
+    <div class="quickNav">
+        <!--子菜单的详细内容  begin-->
+        <div id="one" class="quickNav-menu">
+            <a href="javascript:void(0)" class="quickNav-link">Menu Item One</a>
+            <a href="javascript:void(0)" class="quickNav-link">Menu Item Two</a>
+            <a href="javascript:void(0)" class="quickNav-link">Menu Item Three</a>
+            <a href="javascript:void(0)" class="quickNav-link">Menu Item Fourth</a>
+        </div>
+        <div id="two" class="quickNav-menu">
+            <a href="javascript:void(0)" class="quickNav-link">Menu Item One</a>
+            <a href="javascript:void(0)" class="quickNav-link">Menu Item Two</a>
+        </div>
+        <div id="three" class="quickNav-menu">
+            <a href="javascript:void(0)" class="quickNav-link">Menu Item One</a>
+            <a href="javascript:void(0)" class="quickNav-link">Menu Item Two</a>
+            <a href="javascript:void(0)" class="quickNav-link">Menu Item Three</a>
+            <a href="javascript:void(0)" class="quickNav-link">Menu Item Fourth</a>
+            <a href="javascript:void(0)" class="quickNav-link">Menu Item Fifth</a>
+            <a href="javascript:void(0)" class="quickNav-link">Menu Item Sixth</a>
+        </div>
+        <div id="fourth" class="quickNav-menu">
+            <a href="javascript:void(0)" class="quickNav-link">Menu Item One</a>
+            <a href="javascript:void(0)" class="quickNav-link">Menu Item Two</a>
+        </div>
+        <!--子菜单的详细内容  end-->
+
+        <!--菜单内容 begin-->
+        <div class="quickNav-items">
+            <a href="#one" class="quickNav-item">
+                <span class="quickNav-icon"></span>
+                <span class="quickNav-label">菜单1</span>
+            </a>
+            <a href="#two" class="quickNav-item">
+                <span class="quickNav-icon"></span>
+                <span class="quickNav-label">菜单2</span>
+            </a>
+            <a href="#three" class="quickNav-item">
+                <span class="quickNav-icon"></span>
+                <span class="quickNav-label">菜单3</span>
+            </a>
+            <a href="#fourth" class="quickNav-item">
+                <span class="quickNav-icon"></span>
+                <span class="quickNav-label">菜单4</span>
+            </a>
+        </div>
+        <!--菜单内容 end-->
+    </div>
+
+    <script type="text/javascript" src="../../bower_components/fastclick/lib/fastclick.js"></script>
+    <script type="text/javascript">
+        window.addEventListener('DOMContentLoaded', function () {
+            FastClick.attach(document.body);
+        });
+
+        var quickNav = document.querySelector('.quickNav'),
+            items = quickNav.querySelectorAll('.quickNav-item');
+
+         function closeAll () {
+            var activeMenus = quickNav.querySelectorAll('.quickNav-menu.active'),
+                activeItems = quickNav.querySelectorAll('.quickNav-item.active');
+
+             quickNav.classList.remove('active');
+             Array.prototype.forEach.call(activeItems, activeItem => activeItem.classList.remove('active'));
+             Array.prototype.forEach.call(activeMenus, activeMenu => activeMenu.classList.remove('active'));
+        }
+
+        quickNav.onclick = closeAll;  //事件委托 important
+        Array.prototype.forEach.call(items, function(item) {
+            item.onclick = (e) => {
+                e.stopPropagation();
+                e.preventDefault();
+                const href = item.getAttribute('href');
+                const newMenu = quickNav.querySelector(href);
+                const isActive = newMenu.classList.contains('active');
+                closeAll();
+                if (isActive === false) {
+                    quickNav.classList.add('active');
+                    newMenu.classList.add('active');
+                    item.classList.add('active');
+                }
+            }
+        })
+    </script>
+</body>
+</html>

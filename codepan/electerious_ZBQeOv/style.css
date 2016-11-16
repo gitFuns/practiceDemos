@@ -1,0 +1,97 @@
+body {
+    background: #eee;
+}
+
+.quickNav {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+}
+
+.quickNav:before {
+    content: '';
+    position: absolute;
+    height: 100vh;
+    left: 0; right: 0;
+    bottom: 0; background: rgba(0, 0, 0, .4);
+    opacity: 0;
+    -webkit-transition: opacity .4s ease;
+    transition: opacity .4s ease;
+    will-change: opacity;
+}
+
+.quickNav.active:before {
+    opacity: 1;
+}
+
+.quickNav-items {
+    position: relative;
+    display: flex;
+    justify-content: space-around; /*水平方向*/
+    align-items: center;          /*垂直方向*/
+    background: #fff;
+    box-shadow: 0 -1px 3px rgba(0, 0, 0, .05);
+    z-index: 1;
+}
+
+.quickNav-item {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: .5rem 0;
+    text-decoration: none;
+    width: 25%;
+    overflow: hidden;
+}
+
+.quickNav-icon {
+    margin: 0 .25em;
+    width: 2em;
+    height: 2em;
+    background: black;
+    border-radius: 100%;
+    opacity: .4;
+    transition: opacity .4s ease;
+    will-change: opacity;
+}
+
+.quickNav-item.active .quickNav-icon {
+    opacity: 1;
+}
+
+.quickNav-label {
+    color: #222;
+    font-size: .8em;
+    transition: color .4s ease;
+}
+
+.quickNav-item.active .quickNav-label {
+    color: #000;
+}
+
+.quickNav-menu {
+    position: absolute;
+    top: 0; left: 0;  right: 0;
+    background: #fff;
+    box-shadow: 0 -2px 3px rgba(0, 0, 0, .05);
+    transition: transform .4s ease;
+    will-change: transform;
+    transform: translateY(10%);
+}
+
+.quickNav-menu.active {
+    transform: translateY(-100%);
+}
+
+.quickNav-link {
+    display: block;
+    padding: 1em;
+    color: #222;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(0, 0, 0, .05);
+}
+
+
+
+
+
+
