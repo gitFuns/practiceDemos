@@ -10,6 +10,27 @@
 </head>
 <body>
     <div class="quickNav">
+        <!--菜单内容 begin-->
+        <div class="quickNav-items">
+            <a href="#one" class="quickNav-item">
+                <span class="quickNav-icon"></span>
+                <span class="quickNav-label">菜单1</span>
+            </a>
+            <a href="#two" class="quickNav-item">
+                <span class="quickNav-icon"></span>
+                <span class="quickNav-label">菜单2</span>
+            </a>
+            <a href="#three" class="quickNav-item">
+                <span class="quickNav-icon"></span>
+                <span class="quickNav-label">菜单3</span>
+            </a>
+            <a href="#fourth" class="quickNav-item">
+                <span class="quickNav-icon"></span>
+                <span class="quickNav-label">菜单4</span>
+            </a>
+        </div>
+        <!--菜单内容 end-->
+
         <!--子菜单的详细内容  begin-->
         <div id="one" class="quickNav-menu">
             <a href="javascript:void(0)" class="quickNav-link">Menu Item One</a>
@@ -34,27 +55,6 @@
             <a href="javascript:void(0)" class="quickNav-link">Menu Item Two</a>
         </div>
         <!--子菜单的详细内容  end-->
-
-        <!--菜单内容 begin-->
-        <div class="quickNav-items">
-            <a href="#one" class="quickNav-item">
-                <span class="quickNav-icon"></span>
-                <span class="quickNav-label">菜单1</span>
-            </a>
-            <a href="#two" class="quickNav-item">
-                <span class="quickNav-icon"></span>
-                <span class="quickNav-label">菜单2</span>
-            </a>
-            <a href="#three" class="quickNav-item">
-                <span class="quickNav-icon"></span>
-                <span class="quickNav-label">菜单3</span>
-            </a>
-            <a href="#fourth" class="quickNav-item">
-                <span class="quickNav-icon"></span>
-                <span class="quickNav-label">菜单4</span>
-            </a>
-        </div>
-        <!--菜单内容 end-->
     </div>
 
     <script type="text/javascript" src="../../bower_components/fastclick/lib/fastclick.js"></script>
@@ -75,7 +75,7 @@
              Array.prototype.forEach.call(activeMenus, activeMenu => activeMenu.classList.remove('active'));
         }
 
-        quickNav.onclick = closeAll;  //事件委托 important
+        quickNav.onclick = closeAll;  //事件委托 important 用的非常棒
         Array.prototype.forEach.call(items, function(item) {
             item.onclick = (e) => {
                 e.stopPropagation();
