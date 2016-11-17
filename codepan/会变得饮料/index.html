@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+<body>
+    <div class="container">
+        <!--切换饮料按钮 begin-->
+        <button id="latte">Latte</button>
+        <button id="amuricano">Amuricano</button>
+        <button id="cappu">Cappu</button>
+        <button id="water">Water</button>
+        <!--切换饮料按钮 end-->
+
+        <!--饮料style begin-->
+        <div class="saucer">
+            <div class="inner"></div>
+            <div class="cup">
+                <div class="coffe">
+                    <div class="shine"></div>
+                    <div class="shine left"></div>
+                    <div class="foam"></div>
+                </div>
+                <div class="holder"></div>
+            </div>
+        </div>
+        <div class="choices"></div>
+        <!--饮料style end-->
+    </div>
+
+    <script type="text/javascript">
+        var coffee = document.querySelector('.coffe'),
+            amuricano = document.querySelector('#amuricano'),
+            latte = document.querySelector('#latte'),
+            cappu = document.querySelector('#cappu'),
+            water = document.querySelector('#water');
+
+        function clearAll() {
+            coffee.classList.remove('amuricano');
+            coffee.classList.remove('latte');
+            coffee.classList.remove('cappu');
+            coffee.classList.remove('water');
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            clearAll();
+            coffee.classList.add('americano')
+        });
+
+        latte.addEventListener('click', function () {
+            clearAll();
+            coffee.classList.add('latte');
+        }, false);
+
+        amuricano.addEventListener('click', function () {
+            clearAll();
+            coffee.classList.add('amuricano');
+        }, false);
+
+        cappu.addEventListener('click', function () {
+            clearAll();
+            coffee.classList.add('cappu');
+        }, false);
+
+        water.addEventListener('click', function () {
+            clearAll();
+            coffee.classList.add('water');
+        }, false);
+    </script>
+</body>
+</html>
