@@ -1,6 +1,7 @@
 html, body {
     height: 100vh;
     width: 100vw;
+    overflow: hidden;
 }
 
 body {
@@ -13,16 +14,8 @@ h1, h2, h3, h4 {
 }
 
 #container {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
     align-items: center;
-    -webkit-justify-content: space-around;
-    -ms-flex-pack: distribute;
     justify-content: space-around;
     height: 100%;
     width: 100%;
@@ -30,44 +23,32 @@ h1, h2, h3, h4 {
 
 .slide {
     position: relative;
-    -webkit-box-flex: 1;
-    -webkit-flex: 1;
-    -ms-flex: 1;
     flex: 1;
     height: 100%;
     overflow: hidden;
     cursor: pointer;
-    -webkit-transition: all 1.5s ease-in-out;
     transition: all 1.5s ease-in-out;
 }
 .slide.last-viewed .btn-close:after {
-    -webkit-transition-delay: 0s;
     transition-delay: 0s;
 }
 .slide.last-viewed .btn-close:before {
-    -webkit-transition-delay: 0.1s;
     transition-delay: 0.1s;
 }
 .slide.last-viewed .content .city-info {
-    -webkit-transition-delay: 0s;
     transition-delay: 0s;
 }
 .slide.last-viewed .content .city-info li:nth-of-type(1) {
-    -webkit-transition-delay: 0.2s;
     transition-delay: 0.2s;
 }
 .slide.last-viewed .content .city-info li:nth-of-type(2) {
-    -webkit-transition-delay: 0.4s;
     transition-delay: 0.4s;
 }
 .slide.last-viewed .content .city-info li:nth-of-type(3) {
-    -webkit-transition-delay: 0.6s;
     transition-delay: 0.6s;
 }
 .slide.last-viewed .content .emblem {
-    -webkit-transition: all 0.5s ease-in-out;
     transition: all 0.5s ease-in-out;
-    -webkit-transition-delay: 0s;
     transition-delay: 0s;
 }
 .slide.last-viewed .image, .slide.active .image {
@@ -87,9 +68,7 @@ h1, h2, h3, h4 {
 .slide.active .overlay {
     width: 25%;
     background-size: 100% 100%;
-    -webkit-transition: all 1.25s ease-in-out;
     transition: all 1.25s ease-in-out;
-    -webkit-transition-delay: 1.75s;
     transition-delay: 1.75s;
 }
 .slide.active .content {
@@ -102,11 +81,8 @@ h1, h2, h3, h4 {
 .slide.active .content .title {
     width: 25%;
     opacity: 1;
-    -webkit-transform: translateY(30px);
     transform: translateY(30px);
-    -webkit-transition: all 1s ease-in-out;
     transition: all 1s ease-in-out;
-    -webkit-transition-delay: 1.25s;
     transition-delay: 1.25s;
 }
 .slide.active .content .title:after {
@@ -115,9 +91,7 @@ h1, h2, h3, h4 {
     overflow: initial;
 }
 .slide.active .content .title:before {
-    -webkit-transform: scaleX(1);
     transform: scaleX(1);
-    -webkit-transition-delay: 2s;
     transition-delay: 2s;
 }
 .slide.active .content .city-info {
@@ -125,12 +99,10 @@ h1, h2, h3, h4 {
 }
 .slide.active .content .city-info li {
     opacity: 1;
-    -webkit-transform: translateX(0);
     transform: translateX(0);
 }
 .slide.active .content .emblem {
     opacity: 0.8;
-    -webkit-transform: translateY(100px);
     transform: translateY(100px);
 }
 .slide.active .btn-close {
@@ -141,15 +113,12 @@ h1, h2, h3, h4 {
     opacity: 1;
 }
 .slide.active .btn-close:after {
-    -webkit-transform: rotate(45deg) translateX(0px);
     transform: rotate(45deg) translateX(0px);
 }
 .slide.active .btn-close:before {
-    -webkit-transform: rotate(-45deg) translateX(0px);
     transform: rotate(-45deg) translateX(0px);
 }
 .slide.anim-in {
-    -webkit-transition-delay: 0.5s;
     transition-delay: 0.5s;
 }
 .slide.anim-in .image {
@@ -157,16 +126,11 @@ h1, h2, h3, h4 {
     left: -140%;
     height: 140%;
     width: 140%;
-    -webkit-animation: img-anim-in 1.2s ease-in-out forwards;
     animation: img-anim-in 1.2s ease-in-out forwards;
 }
 .slide.anim-out {
-    -webkit-box-flex: 0;
-    -webkit-flex: 0;
-    -ms-flex: 0;
     flex: 0;
     cursor: default;
-    -webkit-transition-delay: 0.5s;
     transition-delay: 0.5s;
 }
 .slide.anim-out .image {
@@ -174,47 +138,37 @@ h1, h2, h3, h4 {
     left: 0;
     height: 100%;
     width: 100%;
-    -webkit-animation: img-anim-out 1.2s ease-in-out forwards;
     animation: img-anim-out 1.2s ease-in-out forwards;
 }
 .slide:nth-of-type(1).anim-in .image {
-    -webkit-animation-delay: 0.2s;
     animation-delay: 0.2s;
 }
 .slide:nth-of-type(1).anim-out .image {
-    -webkit-animation-delay: 0.2s;
     animation-delay: 0.2s;
 }
 .slide:nth-of-type(2).anim-in .image {
-    -webkit-animation-delay: 0.4s;
     animation-delay: 0.4s;
 }
 .slide:nth-of-type(2).anim-out .image {
-    -webkit-animation-delay: 0.4s;
     animation-delay: 0.4s;
 }
 .slide:nth-of-type(3).anim-in .image {
-    -webkit-animation-delay: 0.6s;
     animation-delay: 0.6s;
 }
 .slide:nth-of-type(3).anim-out .image {
-    -webkit-animation-delay: 0.6s;
     animation-delay: 0.6s;
 }
 .slide:nth-of-type(4).anim-in .image {
-    -webkit-animation-delay: 0.8s;
     animation-delay: 0.8s;
 }
 .slide:nth-of-type(4).anim-out .image {
-    -webkit-animation-delay: 0.8s;
     animation-delay: 0.8s;
 }
 .slide .image {
     position: absolute;
     background-size: cover;
     background-position: center center;
-    pointer-events: none;
-    -webkit-transition: all 1s ease-in-out;
+    pointer-events: none; /*该元素永远不会成为mouseevent的target*/
     transition: all 1s ease-in-out;
 }
 .slide .overlay {
@@ -223,13 +177,11 @@ h1, h2, h3, h4 {
     left: 0;
     height: 100%;
     width: 100%;
-    background-image: -webkit-linear-gradient(rgba(20, 20, 20, 0.7), rgba(20, 20, 20, 0));
     background-image: linear-gradient(rgba(20, 20, 20, 0.7), rgba(20, 20, 20, 0));
     background-position: 0 0;
     background-size: 100% 200%;
     opacity: 1;
     pointer-events: none;
-    -webkit-transition: all 0.5s ease-in-out;
     transition: all 0.5s ease-in-out;
 }
 .slide .content {
@@ -252,7 +204,6 @@ h1, h2, h3, h4 {
     color: #3f3f3f;
     opacity: 0;
     pointer-events: none;
-    -webkit-transition: all 0.5s ease-in-out;
     transition: all 0.5s ease-in-out;
 }
 .slide .content .title:after {
@@ -264,7 +215,6 @@ h1, h2, h3, h4 {
     content: attr(data-title);
     overflow: hidden;
     color: #fff59d;
-    -webkit-transition: all 0.85s ease-in-out;
     transition: all 0.85s ease-in-out;
 }
 .slide .content .title:before {
@@ -276,25 +226,17 @@ h1, h2, h3, h4 {
     width: 85%;
     background: white;
     box-shadow: 0 2px 6px #2f2f2f;
-    -webkit-transform-origin: left center;
     transform-origin: left center;
-    -webkit-transform: scaleX(0);
     transform: scaleX(0);
-    -webkit-transition: -webkit-transform 1.25s ease-in-out;
-    transition: -webkit-transform 1.25s ease-in-out;
     transition: transform 1.25s ease-in-out;
-    transition: transform 1.25s ease-in-out, -webkit-transform 1.25s ease-in-out;
 }
 .slide .content .emblem {
     position: absolute;
     height: 200px;
     width: 25%;
     opacity: 0;
-    -webkit-transform: translateY(120px);
     transform: translateY(120px);
-    -webkit-transition: all 1s ease-in-out;
     transition: all 1s ease-in-out;
-    -webkit-transition-delay: 1.75s;
     transition-delay: 1.75s;
     background-position: center center;
     background-repeat: no-repeat;
@@ -308,12 +250,9 @@ h1, h2, h3, h4 {
     font-size: 1.25em;
     color: white;
     text-shadow: 0 1px 4px #0f0f0f;
-    background-image: -webkit-linear-gradient(0deg, rgba(20, 20, 20, 0), rgba(20, 20, 20, 0.7));
     background-image: linear-gradient(90deg, rgba(20, 20, 20, 0), rgba(20, 20, 20, 0.7));
     opacity: 0;
-    -webkit-transition: all 1s ease-in-out;
     transition: all 1s ease-in-out;
-    -webkit-transition-delay: 2s;
     transition-delay: 2s;
 }
 .slide .content .city-info li {
@@ -321,21 +260,16 @@ h1, h2, h3, h4 {
     margin-bottom: 5px;
     text-align: justify;
     opacity: 0;
-    -webkit-transform: translateX(-30px);
     transform: translateX(-30px);
-    -webkit-transition: all 0.75s ease-in-out;
     transition: all 0.75s ease-in-out;
 }
 .slide .content .city-info li:nth-of-type(1) {
-    -webkit-transition-delay: 2.7s;
     transition-delay: 2.7s;
 }
 .slide .content .city-info li:nth-of-type(2) {
-    -webkit-transition-delay: 2.9s;
     transition-delay: 2.9s;
 }
 .slide .content .city-info li:nth-of-type(3) {
-    -webkit-transition-delay: 3.1s;
     transition-delay: 3.1s;
 }
 .slide .btn-close {
@@ -357,23 +291,17 @@ h1, h2, h3, h4 {
     background-color: white;
     opacity: 0;
     cursor: pointer;
-    -webkit-transition: all 0.5s ease-in-out;
     transition: all 0.5s ease-in-out;
 }
 .slide .btn-close:after {
-    -webkit-transform: rotate(45deg) translateX(-12px);
     transform: rotate(45deg) translateX(-12px);
-    -webkit-transition-delay: 3s;
     transition-delay: 3s;
 }
 .slide .btn-close:before {
-    -webkit-transform: rotate(-45deg) translateX(12px);
     transform: rotate(-45deg) translateX(12px);
-    -webkit-transition-delay: 3.2s;
     transition-delay: 3.2s;
 }
 .slide:hover:not(.active):not(.anim-out) .image {
-    -webkit-transform: scale(1.2);
     transform: scale(1.2);
 }
 .slide:hover:not(.active):not(.anim-out) .overlay {
@@ -381,7 +309,6 @@ h1, h2, h3, h4 {
 }
 .slide:hover:not(.active):not(.anim-out) .content .title {
     opacity: 1;
-    -webkit-transform: translateY(30px);
     transform: translateY(30px);
 }
 .slide:hover:not(.active):not(.anim-out) .content .title:after {
