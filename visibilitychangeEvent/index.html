@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>visibilitychange api test</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        body h1 {
+            font-size: 32px;
+            color: green;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <h1>hello world</h1>
+
+    <script type="text/javascript">
+        document.addEventListener('visibilitychange', function () {
+            if (document.hidden) {
+                console.log("App is hidden");
+            } else {
+                console.log("App is visible");
+            }
+        });
+    </script>
+</body>
+</html>
