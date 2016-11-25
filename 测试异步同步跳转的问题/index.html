@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title></title>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <script type="text/javascript">
+    </script>
 </head>
 <body>
     <!--
@@ -13,8 +15,9 @@
     <script src="../bower_components/jquery/dist/jquery.min.js" type="application/javascript"></script>
     <script type="text/javascript">
         $.get('http://cswebapi.ttelife.com/api/comm/homeCategory', function(data) {
-            alert(data.ResultObject[0].Name);
-            window.location.href = 'https://www.tmall.com';
+            setTimeout(function () {
+                window.location.href = 'http://wxpay.cmbc.com.cn/mobilePlatform/cmbcPayweb.do?context=MIIDeAYKKoEcz1UGAQQCA6CCA2gwggNkAgECMYGdMIGaAgECgBS1x/e/puEJbLQnTtwm2y/+fP1b2jANBgkqgRzPVQGCLQMFAARw7H7pz/2Bw6WjCYiHG3W9vG1uLTuQK40rxG89K8GrT8Ni8rD3HbGmH129rO5ZyGjXCoTrkrJ+7MZ4fTJhEOnPapNXReGzhxrxLtAC7xNG0Ch3L/gigRnflSPbPdy1QszXl8sd7CaEry0DqklYuEmnAzCCAr0GCiqBHM9VBgEEAgEwGwYHKoEcz1UBaAQQHco4XIZMENq1PF1dMyPegICCApDshATLt3jbQ5KutiVJ/+5f0dAuticPBOfZN0uk3YyEWKGP6bW9QFl5m6c001k+OtKBI0w+f6AEMREnDzEd4sIfX3EqdKEpGp0Q7Kxx7me2KpT0Zc9nnEGZtS+wvsT7nJk2zAhqrNyVA2EedbjrgzbRZtD/8bu3Wy5uoC5g6hoXWnPhDFWq0ET/NiTS5ykUUXM7Zmq7TIhlawwcExFJkU1xgwq9q0SqQfIJVXxM3rb7WTPZmttshQPXNUXcwDrZ2mMPfMWIT2jnG5QewcuBw6tZp80+XXavbumC7/HjGEbzomnxq1m/hAnNREn8w7tKOAdZXGSLgOZnvRQnNagE7GZq6FjpbdRY1drbF6BeyFMA974fwwKDxMCyQj2IAobbA8subbjwBK+RmxyNdaXThnwko7DfkcpdUZ4Arpd6p2ZZrTPde3EO7jVSkKTIGfxh0IdsLnNxkeFcivBYVKHtBEHbDArwD7wkiGLpp624a97LUqhBuOvEGvezXS6DXn3yhrK+h4PxRpXp4FfnMUJsKhVruEA4qJbySnaDfpArzAjgbrUf8WdDEALgbIy32l0Y+gNHTZbAn5188WD1dUcTfbTV36IQdn8OxF+BKxkNeQCy4Bje0kCh6kwtXmTHNr0ONFAzFEND+ehU6Hwvzh7uLrW7lY8hZ6tt9odQTjvld+SFZi5gq1tPzrSILfER8XL5YdGj2PWFQ7LxA4EDbmh4ed8YKNMHxUiPhu12QUFEO2QBkpo9SHg5tM6IKfcERZT/0oQ1KgP8L6rtnR3WTxFmlkalPLiZUstby7aCb2Xp7xURjE40wh00/QazrAGWyv0ROlpxR2ZQ2OCtBMWvtPJOksv24ZSez20qssfSP1MTRPJYqQ==';
+            }, 5000)
         });
     </script>
 </body>
