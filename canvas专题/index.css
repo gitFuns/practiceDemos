@@ -1,0 +1,17 @@
+.effect-out{
+    animation: effectOut 8s ease-in-out forwards;
+}
+
+@keyframes effectOut{
+    0% { opacity:1; }
+    100% {transform: scale(20); opacity:0; }
+}
+
+.effect-in{
+    animation: effectIn 8s ease-in-out forwards;
+}
+
+@keyframes effectIn{
+    0% { opacity: 0; }
+    100% {transform: scale(1); opacity:1; }
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>移动端适配</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <script src="../bower_components/lib-flexible/build/flexible.js" type="text/javascript"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #f5f5f5;
+            width: 100%;
+        }
+
+        div.box {
+            width: 10rem;
+            height: 10rem;
+            border: 1px solid #dcdcdc;
+            line-height: 200px;
+            text-align: center;
+            font-size: 32px;
+            background: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        移动端适配
+    </div>
+</body>
+</html>
